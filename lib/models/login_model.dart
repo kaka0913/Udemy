@@ -1,0 +1,44 @@
+// flutter
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+// packages
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+// constants
+import 'package:test0805/constants/routes.dart' as routes;
+import 'package:test0805/models/main_model.dart';
+
+final loginProvider = ChangeNotifierProvider(
+  ((ref) => LoginModel()
+));
+ 
+class LoginModel extends ChangeNotifier {
+  User? currentUser;
+  // auth
+  String email = "";
+  String password = "";
+  bool isObscure = true;
+ 
+  Future<void> login({required BuildContext context,required MainModel mainModel}) async {
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
+      
+      routes.toMyApp(context: context);
+      mainModel.setCurrentUser();
+    } on FirebaseAuthException catch(e) {
+      debugPrint(e.toString());
+    }
+  }
+ 
+  Future<void> logout() async {
+    await FirebaseAuth.instance.signOut();
+    currentUser = FirebaseAuth.instance.currentUser;
+    notifyListeners();
+ 
+  }
+ 
+  void toggleIsObscure() {
+    isObscure = !isObscure;
+    notifyListeners();
+  }
+ 
+}

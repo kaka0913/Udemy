@@ -1,0 +1,65 @@
+name: test0805
+description: A new Flutter project.
+publish_to: 'none' 
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+
+
+  cupertino_icons: ^1.0.2
+  flutter_riverpod: ^2.3.6
+  firebase_core: ^2.15.0
+
+  #記載なしだが残しておく
+  firebase_core_desktop: ^1.0.2
+  flutterfire_cli: ^0.2.7
+
+
+  firebase_auth: ^4.7.2
+  cloud_firestore: ^4.8.4
+  #firebase_analytics: ^10.4.4 :Duplicate mapping key
+  #google_fonts:
+  #pull_to_refresh:
+  #image_cropper:
+  #shared_preferences:
+  #url_launcher:
+  #clipboard:
+  #flutter_launcher_icons:
+  #flash:
+  uuid: ^3.0.7
+  json_annotation: ^4.8.1
+  #image_picker:
+  #flutter_svg:
+  #firebase_storage:
+  #firebase_crashlytics:
+  #fluttertoast:
+  #material_floating_search_bar:
+  #http:
+  #flutter_dotenv:
+  #algolia:
+  freezed_annotation: ^2.4.1
+  #firebase_auth: ^4.7.2
+
+
+
+dev_dependencies:
+  build_runner: ^2.4.6
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  freezed: ^2.4.2
+  json_serializable: ^6.7.1
+
+dependency_overrides:
+   intl:
+
+flutter:
+
+ uses-material-design: true
+
